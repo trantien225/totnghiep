@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảm Ơn Đã Tham Dự Buổi Lễ Tốt Nghiệp</title>
+    <style>
+        /* Định dạng trang nền với gradient đỏ */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            overflow: hidden;
+            font-family: 'Comic Sans MS', sans-serif;
+            position: relative;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Định dạng tiêu đề */
+        .thank-you-message {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #b22222;
+            text-transform: uppercase;
+            margin: 0 20px;
+            animation: pulse 2s infinite;
+            max-width: 90%;
+            text-shadow: 0px 0px 10px rgba(178, 34, 34, 0.7);
+        }
+
+        /* Định dạng thông điệp phụ */
+        .sub-message {
+            font-size: 1.2rem;
+            color: #41dcff;
+            max-width: 80%;
+            margin-top: 15px;
+            animation: fadeIn 3s ease-in-out;
+            opacity: 0.9;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Hiệu ứng phát sáng chữ */
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 15px #ff6347, 0 0 25px #ff4500, 0 0 35px #ff6347; }
+            50% { text-shadow: 0 0 30px #ff6347, 0 0 45px #ff4500, 0 0 60px #ff4500; }
+        }
+
+        /* Animation mờ dần của thông điệp phụ */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Định dạng trái tim rơi */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff4500;
+            clip-path: polygon(50% 0%, 0% 37%, 12% 100%, 50% 85%, 88% 100%, 100% 37%);
+            opacity: 0; /* Ban đầu trái tim ẩn */
+            box-shadow: 0px 0px 8px rgba(255, 69, 0, 0.6);
+            animation: fall 4s linear infinite;
+        }
+
+        /* Animation trái tim rơi và xoay */
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 1; /* Trái tim sẽ dần hiện lên khi bắt đầu rơi */
+                transform: scale(1) rotate(0deg) translateX(0);
+            }
+            100% {
+                top: 110%;
+                opacity: 0; /* Khi trái tim rơi xuống, độ mờ dần đi */
+                transform: scale(0.5) rotate(360deg) translateX(30px);
+            }
+        }
+
+        /* Định dạng cho màn hình nhỏ */
+        @media (max-width: 600px) {
+            .thank-you-message {
+                font-size: 2rem;
+                padding: 10px;
+            }
+
+            .sub-message {
+                font-size: 1rem;
+                padding: 5px;
+            }
+
+            .heart {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-message">Cảm ơn!</div>
+    
+    <!-- Thông điệp phụ thêm phần ý nghĩa -->
+    <p class="sub-message">
+        "Hãy luôn mỉm cười nhé vì nụ cười của bạn rất đẹp..."
+    </p>
+
+    <!-- Thêm nhiều trái tim rơi -->
+    <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 15%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 25%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 35%; animation-delay: 0.5s;"></div>
+    <div class="heart" style="left: 45%; animation-delay: 3s;"></div>
+    <div class="heart" style="left: 55%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="left: 65%; animation-delay: 3s;"></div>
+    <div class="heart" style="left: 75%; animation-delay: 0.8s;"></div>
+    <div class="heart" style="left: 85%; animation-delay: 2.5s;"></div>
+    <div class="heart" style="left: 95%; animation-delay: 4s;"></div>
+
+    <script>
+        // JavaScript để ngẫu nhiên hóa vị trí và độ trễ của trái tim
+        const hearts = document.querySelectorAll('.heart');
+        hearts.forEach(heart => {
+            const randomLeft = Math.random() * 100; // Vị trí ngẫu nhiên trái tim từ 0% đến 100%
+            const randomDelay = Math.random() * 5; // Độ trễ ngẫu nhiên từ 0 đến 5 giây
+            const randomDuration = Math.random() * 3 + 4; // Thời gian ngẫu nhiên từ 4 đến 7 giây
+            heart.style.left = `${randomLeft}%`;
+            heart.style.animationDelay = `${randomDelay}s`;
+            heart.style.animationDuration = `${randomDuration}s`;
+        });
+    </script>
+</body>
+</html>
